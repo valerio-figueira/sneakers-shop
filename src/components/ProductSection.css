@@ -33,7 +33,7 @@ input[type=number] {
 
     max-width: 800px;
 }
-.product img:hover{
+.product img.product-image:hover, .product .thumbs-container img:hover{
     box-shadow: 0px 0px 10px 0px #0000006c;
 }
 .product .product-image{
@@ -132,4 +132,49 @@ input[type=number] {
     padding: .5rem 2rem;
 }
 
+.product .images-container .prev-btn, .product .images-container .next-btn{
+    display: none;
+}
 
+
+@media screen and (max-width: 750px){
+    .product{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .product .thumbs-container{
+        display: none;
+    }
+
+    .product .images-container{
+        position: relative;
+    }
+
+    .product .images-container .prev-btn, .product .images-container .next-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+
+        background: white;
+        padding: 1rem; margin: 0 .5rem;
+        cursor: pointer;
+    }
+
+    .product .images-container .prev-btn:hover, .product .images-container .next-btn:hover{
+        
+    }
+
+    .product .images-container .prev-btn{
+        left: 0;
+    }
+
+    .product .images-container .next-btn{
+        right: 0;
+    }
+}
