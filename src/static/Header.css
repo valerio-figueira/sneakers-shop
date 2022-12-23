@@ -1,0 +1,84 @@
+:root{
+    --Orange: hsl(26, 100%, 55%);
+    --PaleOrange: hsl(25, 100%, 94%);
+    --VeryDarkBlue: hsl(220, 13%, 13%);
+    --Darkgrayishblue: hsl(219, 9%, 45%);
+    --GrayishBlue: hsl(220, 14%, 75%);
+    --LightGrayishBlue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black: hsl(0, 0%, 0%);
+}
+
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 2rem;
+
+    padding: 0;
+    margin: 0 15%;
+    border-bottom: 1px solid lightgray;
+}
+header .logo{
+    padding: 2rem 0;
+    border-bottom: 3px solid transparent;
+}
+header .logo:hover{
+    border-bottom: 3px solid var(--Orange);
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.3rem;
+    width: 100%;
+}
+.navbar a{
+    color: var(--Darkgrayishblue);
+    border-bottom: 3px solid transparent;
+    padding: 2rem 0;
+}
+.navbar a:hover{
+    color: var(--Black);
+    border-bottom: 3px solid var(--Orange);
+}
+.navbar .links-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.profile-container .profile img{
+    cursor: pointer;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+.profile-container .profile img:hover{
+    border: 2px solid var(--Orange);
+}
+.profile-container .cart-btn{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+
+@media screen and (max-width: 1350px) {
+    header{
+        margin: 0 10%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    header{
+        margin: 0 5%;
+    }
+}
