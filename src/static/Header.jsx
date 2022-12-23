@@ -2,6 +2,7 @@ import React from 'react';
 
     // IMAGES
     import Logo from "../assets/images/logo.svg";
+    import Mobile from "../assets/images/icon-menu.svg";
 
     // CSS
     import "./Header.css";
@@ -9,9 +10,13 @@ import React from 'react';
     // COMPONENTS
     import Cart from '../components/Cart';
 
-function Header() {
+function Header(props) {
   return (
     <header>
+      <div className='mobile-btn'>
+        <img src={Mobile} alt="Mobile Icon" />
+      </div>
+
       <a href="#Home" className='logo'>
         <img src={Logo} alt="Logo" />
       </a>
@@ -25,7 +30,12 @@ function Header() {
             <a href="#Contact">Contact</a>
         </div>
 
-        <Cart />
+        <Cart
+          name={props.name}
+          price={props.price}
+          quantity={props.quantity}
+          image={props.image}
+        />
       </nav>
 
     </header>

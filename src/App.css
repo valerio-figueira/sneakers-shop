@@ -7,6 +7,8 @@
   --LightGrayishBlue: hsl(223, 64%, 98%);
   --White: hsl(0, 0%, 100%);
   --Black: hsl(0, 0%, 0%);
+
+  --mobile: 360px;
 }
 
 *{
@@ -14,6 +16,10 @@
   margin: 0; padding: 0;
   text-decoration: none;
   transition: .3s linear;
+}
+
+body{
+  min-width: var(--mobile);
 }
 
 main.container{
@@ -33,4 +39,10 @@ main.container{
   main.container{
     padding: 4rem 3%;
   }
+}
+
+@media screen and (max-width: 380px) {
+  main.container{
+    padding: 4rem 0;
+  }  
 }

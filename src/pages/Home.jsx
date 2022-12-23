@@ -3,10 +3,15 @@ import React from 'react';
 
 import ProductSection from '../components/ProductSection';
 
-function Home() {
+function Home(props) {
   return (
     <>
-      <ProductSection />
+      <ProductSection
+      price={props.price}
+      quantity={props.quantity}
+      name={props.name}
+      image={props.image}
+      />
     </>
   )
 }

@@ -137,6 +137,12 @@ input[type=number] {
 }
 
 
+
+
+
+
+
+
 @media screen and (max-width: 750px){
     .product{
         flex-direction: column;
@@ -167,7 +173,7 @@ input[type=number] {
     }
 
     .product .images-container .prev-btn:hover, .product .images-container .next-btn:hover{
-        
+        background: #ffee8e;
     }
 
     .product .images-container .prev-btn{
@@ -177,4 +183,24 @@ input[type=number] {
     .product .images-container .next-btn{
         right: 0;
     }
+
+
+    .product .description-container{
+        margin: 0;
+        padding: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .product{
+      padding: 0; margin: 0;
+    }
+
+    .product .product-image{
+        width: 100%;
+        border-radius: 0;
+        cursor: pointer;
+    }
+
 }
