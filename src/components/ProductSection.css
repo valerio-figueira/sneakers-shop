@@ -136,7 +136,14 @@ input[type=number] {
     display: none;
 }
 
-
+.product .promotion-percentage{
+    margin-left: .7rem;
+    font-size: 1.2rem;
+    color: var(--Orange);
+    background: var(--PaleOrange);
+    padding: .2rem;
+    border-radius: 7px;
+}
 
 
 

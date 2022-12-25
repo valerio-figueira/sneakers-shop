@@ -82,7 +82,9 @@ function ProductSection({name, price, quantity, image}) {
     }, [imageIndex])
 
 
-    function setCart(){
+    function setCart(e){
+        e.preventDefault();
+
         price(Number(document.querySelector(".product .price-number").innerHTML));
         quantity(qtValue);
         name(document.querySelector(".product .title").innerHTML);
@@ -115,6 +117,7 @@ function ProductSection({name, price, quantity, image}) {
                 <p className='description'>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
                 <p className='price'>$
                     <span className='price-number'>125.00</span>
+                    <span className='promotion-percentage'>50%</span>
                 </p>
                 <small className='real-value'>$250.00</small>
 

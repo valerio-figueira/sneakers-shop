@@ -5,7 +5,8 @@ import React, { useEffect, useState } from 'react';
     import ProfilePhoto from "../assets/images/image-avatar.png";
     import DeleteIcon from "../assets/images/icon-delete.svg";
 
-    import Example from "../assets/images/image-product-1.jpg"
+    // COMPONENTS
+    import CartItem from './CartItem';
 
 function Cart({name, price, quantity, image}) {
   const [totalPerItem, setTotalPerItem] = useState();
@@ -28,6 +29,15 @@ function Cart({name, price, quantity, image}) {
 
   }, [name, price, quantity, image])
 
+
+  function deleteItem(){
+    document.querySelector(".cart-box")
+    .innerHTML = "";
+  }
+
+  
+
+
   return (
     <>
         <div className='profile-container'>
@@ -42,18 +52,24 @@ function Cart({name, price, quantity, image}) {
 
         <div className="cart">
           <h3 className='title'>Cart</h3>
-          <div className="cart-box">
-              <img src={image} alt="Product" />
-              <div className="item-description">
-                  <p className='name'>{name}</p>
-                  <p className='price'>
-                    ${price}
-                    <span className='item-quantity'> x {quantity}</span>
-                    <span className='total-price'>${totalPerItem}</span>
-                  </p>
-              </div>
-              <img src={DeleteIcon} className="delete-icon" alt="Delete Icon" />
-          </div>
+          {name && price && quantity && image ? (
+            <div className="cart-box">
+                <img src={image} alt="Product" />
+                <div className="item-description">
+                    <p className='name'>{name}</p>
+                    <p className='price'>
+                        ${price}
+                        <span className='item-quantity'> x {quantity}</span>
+                        <span className='total-price'>${totalPerItem}</span>
+                    </p>
+                </div>
+                <img src={DeleteIcon} className="delete-icon" alt="Delete Icon" onClick={deleteItem} />
+            </div>
+          ) : (
+            <div className="cart-box">
+              
+            </div>
+          )}
           <button className='checkout'>Checkout</button>
         </div>
 
