@@ -11,9 +11,22 @@ import React from 'react';
     import Cart from '../components/Cart';
 
 function Header(props) {
+
+  function openNav(){
+    const navLinks = document.querySelector(".navbar .links-container");
+
+    if(!navLinks.matches(".open")){
+      navLinks.classList.add("open");
+    } else{
+      navLinks.classList.remove("open");
+    }
+
+  }
+
+
   return (
     <header>
-      <div className='mobile-btn'>
+      <div className='mobile-btn' onClick={openNav}>
         <img src={Mobile} alt="Mobile Icon" />
       </div>
 
@@ -28,6 +41,7 @@ function Header(props) {
             <a href="#Women">Women</a>
             <a href="#About">About</a>
             <a href="#Contact">Contact</a>
+            <div className='close-nav' onClick={openNav}>&times;</div>
         </div>
 
         <Cart

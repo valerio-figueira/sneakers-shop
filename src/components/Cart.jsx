@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
     import CartIcon from "../assets/images/icon-cart.svg";
     import ProfilePhoto from "../assets/images/image-avatar.png";
     import DeleteIcon from "../assets/images/icon-delete.svg";
-    
+
 
 function Cart({name, price, quantity, image}) {
   const [totalPerItem, setTotalPerItem] = useState();
@@ -44,8 +44,6 @@ function Cart({name, price, quantity, image}) {
           totalPerItem,
         };
 
-        console.log(searchForMatch(newObject))
-
         if(!searchForMatch(newObject)){
           setCartItems(actualItem => [...actualItem, {
             name,
@@ -54,6 +52,8 @@ function Cart({name, price, quantity, image}) {
             quantity,
             totalPerItem,
           }]);
+        } else{
+          cartItems.findIndex(item => item.name)
         }
         
       }
@@ -74,6 +74,7 @@ function Cart({name, price, quantity, image}) {
 
     for(let item of cartItems){
       if(item.name.match(newObject.name)){
+
         return true;
       }
     }

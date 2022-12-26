@@ -160,6 +160,10 @@ header .cart-box p.empty {
     margin: 1rem 0;
 }
 
+header .navbar .close-nav{
+    display: none;
+}
+
 
 
 @media screen and (max-width: 1350px) {
@@ -183,6 +187,45 @@ header .cart-box p.empty {
     .links-container a{
         display: none;
     }
+
+    .links-container.open a{
+        display: block;
+        padding: 0;
+    }
+    .links-container.open{
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+        align-items: baseline;
+
+        position: fixed;
+        top: 0; bottom: 0; left: 0; 
+        z-index: 1001;
+
+        padding: 0 3.5rem;
+
+        background: var(--White);
+    }
+    .links-container.open .close-nav{
+        display: block;
+    }
+    .links-container{
+        position: relative;
+        box-shadow: 0px 0px 10px 1px #00000060;
+    }
+    .navbar .close-nav{
+        position: absolute;
+        top: 0;
+        left: 1rem;
+
+        cursor: pointer;
+        font-size: 3rem;
+        color: var(--GrayishBlue);
+    }
+    .navbar .close-nav:hover{
+        color: var(--Orange);
+    }
+
 
     header{
         align-items: center;
