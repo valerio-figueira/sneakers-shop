@@ -19,8 +19,8 @@ function App() {
 
 
   useEffect(() => {
-    console.log(price, quantity, name)
-  }, [price, quantity, name])
+    console.log("App: " + price, quantity, name, image)
+  }, [price, quantity, name, image])
 
 
   return (

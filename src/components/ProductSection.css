@@ -191,12 +191,20 @@ input[type=number] {
         right: 0;
     }
 
+    /*MAIN IMAGE*/
+    .product .product-image{
+        width: 400px;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
 
     .product .description-container{
         margin: 0;
         padding: 1rem;
     }
 }
+
 
 
 @media screen and (max-width: 400px) {

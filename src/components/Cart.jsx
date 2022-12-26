@@ -4,12 +4,11 @@ import React, { useEffect, useState } from 'react';
     import CartIcon from "../assets/images/icon-cart.svg";
     import ProfilePhoto from "../assets/images/image-avatar.png";
     import DeleteIcon from "../assets/images/icon-delete.svg";
-
-    // COMPONENTS
-    import CartItem from './CartItem';
+    
 
 function Cart({name, price, quantity, image}) {
   const [totalPerItem, setTotalPerItem] = useState();
+  const [cartItems, setCartItems] = useState([]);
 
   function openCart(){
     const cart = document.querySelector(".cart");
@@ -25,7 +24,42 @@ function Cart({name, price, quantity, image}) {
   useEffect(() => {
     setTotalPerItem(quantity * price)
 
-    console.log(name, price, quantity, image)
+    if(name && price && quantity && image && totalPerItem){
+
+      if(cartItems.length == 0){
+        setCartItems([{
+          name,
+          price,
+          image,
+          quantity,
+          totalPerItem,
+        }]);
+      } else {
+
+        const newObject = {
+          name,
+          price,
+          image,
+          quantity,
+          totalPerItem,
+        };
+
+        console.log(searchForMatch(newObject))
+
+        if(!searchForMatch(newObject)){
+          setCartItems(actualItem => [...actualItem, {
+            name,
+            price,
+            image,
+            quantity,
+            totalPerItem,
+          }]);
+        }
+        
+      }
+
+      console.log(cartItems)
+    }
 
   }, [name, price, quantity, image])
 
@@ -35,6 +69,17 @@ function Cart({name, price, quantity, image}) {
     .innerHTML = "";
   }
 
+
+  function searchForMatch(newObject){
+
+    for(let item of cartItems){
+      if(item.name.match(newObject.name)){
+        return true;
+      }
+    }
+
+    return false;
+  }
   
 
 
@@ -52,7 +97,37 @@ function Cart({name, price, quantity, image}) {
 
         <div className="cart">
           <h3 className='title'>Cart</h3>
-          {name && price && quantity && image ? (
+          {cartItems ? (
+              cartItems.map((item, i) => (
+                <div className='cart-box' key={i}>
+                    <img src={item.image} alt="Product" />
+                    <div className="item-description">
+                        <p className='name'>{item.name}</p>
+                        <p className='price'>
+                            ${item.price}
+                            <span className='item-quantity'> x {item.quantity}</span>
+                            <span className='total-price'>${item.totalPerItem}</span>
+                        </p>
+                    </div>
+                    <img src={DeleteIcon} className="delete-icon" alt="Delete Icon" onClick={deleteItem} />
+                </div>
+              ))
+          ) : (
+            <div className="cart-box">
+              <p className='empty'>Your Cart is empty</p>
+            </div>
+          )}
+          <button className='checkout'>Checkout</button>
+        </div>
+
+    </>
+  )
+}
+
+export default Cart;
+
+/*
+
             <div className="cart-box">
                 <img src={image} alt="Product" />
                 <div className="item-description">
@@ -65,16 +140,5 @@ function Cart({name, price, quantity, image}) {
                 </div>
                 <img src={DeleteIcon} className="delete-icon" alt="Delete Icon" onClick={deleteItem} />
             </div>
-          ) : (
-            <div className="cart-box">
-              
-            </div>
-          )}
-          <button className='checkout'>Checkout</button>
-        </div>
 
-    </>
-  )
-}
-
-export default Cart;
+*/

@@ -3,9 +3,9 @@ import React from 'react'
     // IMAGES
     import DeleteIcon from "../assets/images/icon-delete.svg";
 
-function CartItem({name, price, quantity, image, deleteItem, totalPerItem}) {
+function CartItem({id, name, price, quantity, image, deleteItem, totalPerItem}) {
   return (
-    <>
+    <div className='cart-box' key={id}>
         <img src={image} alt="Product" />
         <div className="item-description">
             <p className='name'>{name}</p>
@@ -16,7 +16,7 @@ function CartItem({name, price, quantity, image, deleteItem, totalPerItem}) {
             </p>
         </div>
         <img src={DeleteIcon} className="delete-icon" alt="Delete Icon" onClick={deleteItem} />
-    </>
+    </div>
   )
 }
 

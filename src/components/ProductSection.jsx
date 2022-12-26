@@ -53,7 +53,7 @@ function ProductSection({name, price, quantity, image}) {
         if(plus < 1 ){
             setPlus(1);
         } else if(plus > 9999){
-            setPlus(9999)
+            setPlus(9999);
         } else{
             setQtValue(plus);
         }
